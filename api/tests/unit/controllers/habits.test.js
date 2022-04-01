@@ -78,7 +78,7 @@ describe("Habit controller", () => {
         
         const mockReq = { params: { id: 1 } }
         await habitRoutes.destroy(mockReq, mockRes);
-        expect(mockStatus).toHaveBeenCalledWith(204);
+        expect(mockStatus).toHaveBeenCalledWith(404);
     })
 });
 

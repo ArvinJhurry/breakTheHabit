@@ -16,7 +16,7 @@
     <!----------------------- favicon ---------------------------------------->
     <link rel="shortcut icon" type="image/x-icon" href="./static/css/favicon_habits.png"/>
     <link rel="stylesheet" type="text/css" href="./static/css/habits.css">
-    <script type="text/javascript" src = "./static/js/habits.js" defer ></script>
+    <script type="text/javascript" defer src = "./static/js/habits.js"></script>
     <title>Grabbit</title>
 </head>
 <body>
@@ -44,17 +44,18 @@
 		 <input type="text"  id="habit" name="habit" placeholder="Your habit..." required>
 
 	  	<label for="frequency">Choose your goal frequency with a number:</label>
-	  	<input type="text"  id="frequency" name="frequency" placeholder="E.g. 3, 5, 10">
+	  	<input type="text"  id="frequency" name="frequency" placeholder="E.g. 3, 5, 10" required>
 		
      <label for="units">Choose units:</label>
-     <input type="text"  id="units" name="units" placeholder="E.g. glasses, miles, kilometers">
+     <input type="text"  id="units" name="units" placeholder="E.g. glasses, miles, kilometers" required>
 
      <label for="time">Per: (Choose period of time)</label>
-     <input type="text"  id="time" name="time" placeholder="E.g. days, weeks">
+     <input type="text"  id="time" name="time" placeholder="E.g. days, weeks" required>
 
 	  	<input type="button" name="button" id="addHabitBtn" value="Add Habit">
       </div>
   	</div>
+
 
   <table id="habitTable">
   <tbody>
@@ -76,7 +77,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel"> Please enter your progress</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
@@ -84,8 +85,8 @@
           <input type="text" id="editHabitText">
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Submit</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary" id="editHabitSubmit">Submit</button>
         </div>
       </div>
     </div>

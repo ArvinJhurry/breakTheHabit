@@ -1,8 +1,12 @@
+// const serverPath = `http://localhost:3000`;
+const serverPath = `https://trackyourhabits.herokuapp.com`;
+
+
 // get all users or habits
 // change category to "users" or "habits"
 async function getAll(category){
     try {
-        const response = await fetch(`http://localhost:3000/${category}`);
+        const response = await fetch(`${serverPath}/${category}`);
         const data = await response.json()
         return data;
     } catch (err) {
@@ -13,7 +17,7 @@ async function getAll(category){
 // get all habits per unique user id
 async function getHabitsOfUser(id) {
     try {
-      const response = await fetch(`http://localhost:3000/habits/user/${id}`);
+      const response = await fetch(`${serverPath}/habits/user/${id}`);
       const data = await response.json();
       return data;
     } catch (err) {
@@ -24,7 +28,7 @@ async function getHabitsOfUser(id) {
 // get user or habit by id
 async function getItem(category, id) {
     try {
-        const response = await fetch(`http://localhost:3000/${category}/${id}`);
+        const response = await fetch(`${serverPath}/${category}/${id}`);
         const data = await response.json();
         return data;
     } catch (err) {
@@ -41,7 +45,7 @@ async function postHabit(e){
             body: JSON.stringify(Object.fromEntries(new FormData(e.target)))
         }
         
-        const response = await fetch('http://localhost:3000/habits', options);
+        const response = await fetch(`${serverPath}/habits`, options);
         const { id, err } = await response.json();
         if(err) { 
             throw Error(err) 
@@ -56,7 +60,7 @@ async function postHabit(e){
 async function deleteHabit(id){
     try {
         const options = { method: 'DELETE' }
-        await fetch(`http://localhost:3000/habits/${id}`, options);
+        await fetch(`${serverPath}/${id}`, options);
         window.location.hash = `#books`
     } catch (err) {
         console.warn(err);

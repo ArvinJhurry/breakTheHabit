@@ -1,10 +1,17 @@
-const User = require("../../api/models/User");
-const userRoutes = require('../../api/controllers/users')
+const User = require("../../../models/User");
+const userRoutes = require('../../../controllers/users')
 
 const mockSend = jest.fn();
 const mockJson = jest.fn();
 const mockStatus = jest.fn(code => ({ send: mockSend, json: mockJson }))
 const mockRes = { status: mockStatus }
+
+const testUser = new User({
+    user_id: 1,
+    username: 'user1',
+    email: 'test@test.com',
+    pass_digest: 'password'
+})
 
 describe('user controller', () => {
     beforeEach(() =>  jest.clearAllMocks());
@@ -23,17 +30,13 @@ describe('user controller', () => {
 
     describe('show', () => {
         test('it returns a user and their dashboard with a 200 status code', async () => {
-            jest.spyOn(User, 'findById')
-                .mockResolvedValue( user1);
-            jest.spyOn(User.prototype, 'user', 'get')
-                .mockResolvedValue(['habit1', 'habit2']);
+            jest.spyOn(User, 'findUserById')
+                .mockResolvedValue( testUser);
                 
             const mockReq = { params: { user_id: 1 } }
-            await authorsController.show(mockReq, mockRes);
+            await userRoutes.show(mockReq, mockRes);
             expect(mockStatus).toHaveBeenCalledWith(200);
-            expect(mockJson).toHaveBeenCalledWith({
-                user_id: 1
-            });
+            expect(mockJson).toHaveBeenCalledWith(testUser);
         })
     });
     

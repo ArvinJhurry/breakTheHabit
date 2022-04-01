@@ -33,8 +33,9 @@ This project is about building a habit tracker.
 
 ## Technical Requirements
 
-* Data is persisted on database `(?)`
-* Minimum 60% test coverage with an aim of 80% `(?)`
+* Data is persisted on database
+* Aim was: Minimum 60% test coverage with an aim of 80% 
+    * result: 56% test coverage on the server (client test was not implemented)
 
 ## Api Endopoints
 
@@ -57,7 +58,12 @@ http://localhost:3000/habits/:id |  `DELETE` | creates delete habit route |
 
 To access database:
 
-            docker exec -it habit_tracker_dev_db psql -U habit_tracker habit
+        docker exec -it habit_tracker_dev_db psql -U habit_tracker habit
+
+
+<p align="center">
+  <img src="https://github.com/dimi-fn/breakTheHabit/blob/main/client/static/css/schema.PNG" alt="">
+</p>                
 
 --------
 
@@ -77,6 +83,16 @@ To access database:
 
 # Wins & Challenges
 
+## Wins
+
+## Challenges
+
+* Client test was not implemented
+
 -------
 
-# Licence
+# MIT Licence
+
+* [MIT Licence](https://github.com/dimi-fn/breakTheHabit/blob/main/LICENCE)
+
+
